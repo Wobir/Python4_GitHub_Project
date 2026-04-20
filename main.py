@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, session
 from models import db, Users, Posts, Messages
 from forms import RegForm, AuthForm, CreatePostForm
 app = Flask(__name__)
@@ -18,10 +18,10 @@ def reg():
             name = request.form.get("name")
             password = request.form.get("password")
             email = request.form.get("email")
-            if User.query.filter_by(name = name).first() or User.query.filter_by(email = email).first():
+            if Users.query.filter_by(name = name).first() or Users.query.filter_by(email = email).first():
                 message = "Пользователь с таким именем и почтой уже зарегестрирован"
                 return render_template("reg.html", form = reg_form, message = message)
-            new_user = User(
+            new_user = Users(
                 name = name,
                 email = email,
                 password = password
@@ -38,9 +38,9 @@ def auth():
         if request.method=="POST":
             name=request.form.get("name")
             password= request.form.get("password")
-            user = User.query.filter_by(name = name ).first()
+            user = Users.query.filter_by(name = name ).first()
             if not user:
-                user = User.query.filter_by(email= name).first()
+                user = Users.query.filter_by(email= name).first()
             if user and user.password == password:
                 session["user_id"] = user.id
                 session["user_name"] = user.name
