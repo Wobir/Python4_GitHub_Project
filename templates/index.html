@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Главная</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="about">
+    <h1>Добро пожаловать в наш месседжер Real-it</h1>
+    <h3>Здесь вы можете обмениваться сообщениями со своими друзьями / знакомыми / коллегами и т.д. абсолютно анонимно</h3>
+</div>
+{% endblock %}

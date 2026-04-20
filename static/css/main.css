@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #0f172a 100%);
+    min-height: 100vh;
+    color: #f1f5f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1e293b;
+}
+
+.div-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding: 12px;
+}
+
+.nav-link {
+    color: #f1f5f9;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 17px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    transform: translateY(-1px);
+}
+
+.nav-link:active {
+    transform: translateY(0);
+}
+
+.content {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 32px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+
+.footer {
+    margin-top: 64px;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1e293b;
+    border-top: 1px solid #1e293b ;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 32px;
+    display: flex;
+    gap: 32px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 15px;
+}
+
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 24px;
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

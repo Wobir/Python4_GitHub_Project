@@ -1,12 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, timedelta
+from modules import *
 
-app = Flask(__name__)
+@app.route('/')
+def main():
+    return render_template('index.html')
 
 
-@app.route("/base/")
-def base():
-    
-    return render_template("base.html")
 
 
-app.run(debug = True)
+app.run(debug=True)
+
+
