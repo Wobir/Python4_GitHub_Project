@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from models import db, Users, Posts, Messages
 from forms import RegForm, AuthForm, CreatePostForm
-app = Flask(__name__)
-app.config['SECRET_KEY'] = "SECRET_KEY"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, timedelta
+from modules import *
+
 
 
 @app.route("/base/")
 def base():
-    
     return render_template("base.html")
+
 @app.route("/reg/", methods =["GET", "POST"])
 def reg():
     reg_form = RegForm()
@@ -31,7 +32,7 @@ def reg():
             db.session.commit()
     return render_template("reg.html", form = reg_form)
 
-@app.route("/auth/", methods = ["POST", "GET"])
+@app.route("/login/", methods = ["POST", "GET"])
 def auth():
     auth_form = AuthForm()
     if auth_form.validate_on_submit():
@@ -50,13 +51,6 @@ def auth():
                 return render_template("auth.html", form = auth_form, error = error)
     return render_template ("auth.html", form = auth_form)
 
-
-
-app.run(debug = True)
-from flask import Flask, render_template, request, flash, redirect, url_for, session
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime, timedelta
-from modules import *
 
 @app.route('/')
 def main():
