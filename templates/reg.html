@@ -5,6 +5,9 @@
 {% block content %}
 <div class="auth-container">
     <h2>Регистрация</h2>
+    {%if message%}
+    {{message}}
+    {%endif%}
     <form method="POST">
         {{ form.hidden_tag() }}
         
