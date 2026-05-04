@@ -18,12 +18,6 @@
             {% endfor %}
         </div>
 
-        <div class="field-group">
-            {{ form.email() }}
-            {% for error in form.email.errors %}
-                <span class="error-msg">{{ error }}</span>
-            {% endfor %}
-        </div>
 
         <div class="field-group">
             {{ form.password() }}

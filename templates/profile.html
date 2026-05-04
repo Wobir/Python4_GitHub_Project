@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %}Регистрация{% endblock %}
+{% block title %}Профиль{% endblock %}
 
 {% block content %}
 <div class="auth-container">
     <h2>Профиль</h2>
-    {{user.name}}
-    {{user.email}}
-    
+    <h2>{{user.name}}</h2>
 </div>
+
+
+
+<div class="post-creation">
+    {%if message%}
+        <h1>{{message}}</h1>
+    {%endif%}
+    <form method="POST" enctype = "multipart/form-data">
+
+        <div class="field-group">
+            {{ form.image() }}
+            {% for error in form.image.errors %}
+                <span class="error-msg">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="field-group">
+            {{ form.text() }}
+            {% for error in form.text.errors %}
+                <span class="error-msg">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        {{ form.submit() }}
+    </form>
+</div>    
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+{% if posts%}
+{% for post in posts%}
+    <div>
+        {%if post.text%}
+        <p>{{post.text}}</p>
+        {%endif%}
+        {%if post.image%}
+        <img src = "{{url_for('static', filename='user_content/'+post.image)}}" alt = "{{post.image}}">
+        {%endif%}
+    </div>
+{% endfor %}
+{%endif%}
+{% endblock %}
